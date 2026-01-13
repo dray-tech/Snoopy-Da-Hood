@@ -1,0 +1,1943 @@
+--[[
+ .____                  ________ ___.    _____                           __                
+ |    |    __ _______   \_____  \\_ |___/ ____\_ __  ______ ____ _____ _/  |_  ___________ 
+ |    |   |  |  \__  \   /   |   \| __ \   __\  |  \/  ___// ___\\__  \\   __\/  _ \_  __ \
+ |    |___|  |  // __ \_/    |    \ \_\ \  | |  |  /\___ \\  \___ / __ \|  | (  <_> )  | \/
+ |_______ \____/(____  /\_______  /___  /__| |____//____  >\___  >____  /__|  \____/|__|   
+         \/          \/         \/    \/                \/     \/     \/                   
+          \_Welcome to LuaObfuscator.com   (Alpha 0.10.9) ~  Much Love, Ferib 
+
+]]--
+
+local v0 = "https://raw.githubusercontent.com/dray-tech/SloppyUI/refs/heads/main/Library.lua.txt";
+local v1 = loadstring(game:HttpGet(v0 .. "Library.lua"))();
+local v2 = loadstring(game:HttpGet(v0 .. "addons/ThemeManager.lua"))();
+local v3 = loadstring(game:HttpGet(v0 .. "addons/SaveManager.lua"))();
+v1.Toggles = v1.Toggles or {};
+v1.Options = v1.Options or {};
+local v6 = v1.Toggles;
+local v7 = v1.Options;
+local v8 = v1:CreateWindow({Title="Da Snoopy",Center=true,AutoShow=true});
+local v9 = game:GetService("Players");
+local v10 = game:GetService("RunService");
+local v11 = game:GetService("Workspace");
+local v12 = game:GetService("UserInputService");
+local v13 = game:GetService("GuiService");
+local v14 = game:GetService("TweenService");
+local v15 = v9.LocalPlayer;
+local v16 = false;
+local v17 = 1025 - (451 + 549);
+local v18 = false;
+local v19 = 2 + 3;
+local v20 = false;
+local v21 = true;
+local v22 = false;
+local v23 = Color3.fromRGB(396 - 141, 0, 0 - 0);
+local v24 = Color3.fromRGB(255, 1639 - (746 + 638), 96 + 159);
+local v25 = 14;
+local v26 = true;
+local v27 = {};
+local v28 = {};
+local v29 = false;
+local v30 = 1.5 - 0;
+local v31 = false;
+local v32 = 50;
+local v33 = false;
+local v34 = 100;
+local v35 = "Head";
+local v36 = true;
+local v37 = 0.5;
+local v38 = Color3.fromRGB(255, 255, 596 - (218 + 123));
+local v39 = false;
+local v40 = Color3.fromRGB(1836 - (1535 + 46), 0 + 0, 0 + 0);
+local v41 = Enum.UserInputType.MouseButton2;
+local v42 = "MouseButton2";
+local v43 = nil;
+local v44 = 0.3;
+local v45 = "Camera";
+local v46 = 560 - (306 + 254);
+local v47 = 0;
+local v48 = 100;
+local v49 = false;
+local v50 = Color3.fromRGB(16 + 239, 157 - 77, 1547 - (899 + 568));
+local v51 = v12.MouseDeltaSensitivity;
+local v52 = false;
+local v53 = false;
+local v54 = false;
+local v55 = false;
+local v56 = false;
+local v57 = false;
+local v58 = false;
+local v59 = false;
+local v60 = 16;
+local v61 = "X";
+local v62 = false;
+local v63 = 5;
+local v64 = false;
+local v65 = false;
+local v66 = nil;
+local v67 = Drawing.new("Circle");
+v67.Thickness = 2 + 0;
+v67.NumSides = 154 - 90;
+v67.Radius = v34;
+v67.Filled = v55;
+v67.Visible = false;
+v67.Color = v38;
+v67.Transparency = v37;
+local v75 = Drawing.new("Circle");
+v75.Thickness = 606 - (268 + 335);
+v75.NumSides = 354 - (60 + 230);
+v75.Radius = v34 + (573 - (426 + 146));
+v75.Filled = false;
+v75.Visible = false;
+v75.Color = Color3.fromRGB(0, 0 + 0, 1456 - (282 + 1174));
+v75.Transparency = v37;
+local v83 = {};
+local v8 = v1:CreateWindow({Title="Da Hood",Center=true,AutoShow=true,TabPadding=(819 - (569 + 242)),MenuFadeTime=(0.2 - 0)});
+local v84 = {Main=v8:AddTab("Main"),Aimbot=v8:AddTab("Aimbot"),Visuals=v8:AddTab("Visuals"),Settings=v8:AddTab("Settings")};
+local function v85()
+	return v15 and v15.Character;
+end
+local function v86()
+	local v168 = 0;
+	local v169;
+	while true do
+		if (0 == v168) then
+			v169 = v85();
+			return v169 and v169:FindFirstChild("HumanoidRootPart");
+		end
+	end
+end
+local function v87(v170, v171)
+	return (v170 - v171).Magnitude;
+end
+local function v88()
+	return v12:GetFocusedTextBox() ~= nil;
+end
+local function v89()
+	local v172 = v85();
+	local v173 = v172 and v172:FindFirstChildOfClass("Humanoid");
+	if not v173 then
+		return;
+	end
+	v173.WalkSpeed = (v59 and v60) or 16;
+end
+local function v90(v175)
+	local v176 = v175 and v175:FindFirstChildOfClass("Humanoid");
+	if v176 then
+		local v373 = 0 + 0;
+		while true do
+			if (0 == v373) then
+				v176:GetPropertyChangedSignal("WalkSpeed"):Connect(function()
+					if v59 then
+						v176.WalkSpeed = v60;
+					end
+				end);
+				v89();
+				break;
+			end
+		end
+	end
+end
+local function v91(v177)
+	v64 = v177;
+end
+local function v92()
+	local v178 = 1024 - (706 + 318);
+	while true do
+		if (v178 == (1251 - (721 + 530))) then
+			if not v62 then
+				return;
+			end
+			for v400, v401 in ipairs(v9:GetPlayers()) do
+				if (v401 ~= v15) then
+					local v464 = v401.Character;
+					local v465 = v464 and v464:FindFirstChild("HumanoidRootPart");
+					if v465 then
+						local v510 = 1271 - (945 + 326);
+						while true do
+							if (v510 == (2 - 1)) then
+								v465.Transparency = math.clamp(v465.Transparency, 0 + 0, 0.5);
+								break;
+							end
+							if (0 == v510) then
+								v465.Size = Vector3.new(v63, v63, v63);
+								v465.CanCollide = false;
+								v510 = 1;
+							end
+						end
+					end
+				end
+			end
+			break;
+		end
+	end
+end
+local function v93()
+	for v353, v354 in ipairs(v9:GetPlayers()) do
+		if (v354 ~= v15) then
+			local v385 = v354.Character;
+			local v386 = v385 and v385:FindFirstChild("HumanoidRootPart");
+			if v386 then
+				local v438 = 700 - (271 + 429);
+				while true do
+					if (v438 == 0) then
+						v386.Size = Vector3.new(2, 2 + 0, 1501 - (1408 + 92));
+						v386.CanCollide = true;
+						break;
+					end
+				end
+			end
+		end
+	end
+end
+local v94 = nil;
+local v95 = nil;
+local v96 = nil;
+local v97;
+local v98;
+local function v99()
+	if v97 then
+		return;
+	end
+	v97 = v10.Stepped:Connect(function()
+		local v355 = 0;
+		local v356;
+		while true do
+			if (v355 == 1) then
+				if v356 then
+					for v489, v490 in ipairs(v356:GetDescendants()) do
+						if v490:IsA("BasePart") then
+							v490.CanCollide = false;
+						end
+					end
+				end
+				break;
+			end
+			if ((1086 - (461 + 625)) == v355) then
+				if not v64 then
+					return;
+				end
+				v356 = v85();
+				v355 = 1289 - (993 + 295);
+			end
+		end
+	end);
+end
+local function v100()
+	if v97 then
+		v97:Disconnect();
+		v97 = nil;
+	end
+end
+local function v101()
+	local v179 = 0 + 0;
+	while true do
+		if (v179 == (1171 - (418 + 753))) then
+			if v98 then
+				return;
+			end
+			v98 = v10.Heartbeat:Connect(function()
+				if v62 then
+					v92();
+				end
+			end);
+			break;
+		end
+	end
+end
+local function v102()
+	if v98 then
+		v98:Disconnect();
+		v98 = nil;
+	end
+	v93();
+end
+local function v103()
+	local v180 = 0 + 0;
+	local v181;
+	while true do
+		if (v180 == (0 + 0)) then
+			v181 = game:GetService("Lighting");
+			if v65 then
+				v94 = v94 or v181.FogStart;
+				v95 = v95 or v181.FogEnd;
+				v181.FogStart = 0 + 0;
+				v181.FogEnd = 25273 + 74727;
+			else
+				if v94 then
+					v181.FogStart = v94;
+				end
+				if v95 then
+					v181.FogEnd = v95;
+				end
+			end
+			break;
+		end
+	end
+end
+local function v104()
+	local v182 = 529 - (406 + 123);
+	local v183;
+	while true do
+		if (v182 == (1769 - (1749 + 20))) then
+			v183 = game:GetService("Lighting");
+			if not v96 then
+				v96 = {Ambient=v183.Ambient,Outdoor=v183.OutdoorAmbient};
+			end
+			v182 = 1 + 0;
+		end
+		if (v182 == 1) then
+			if v66 then
+				local v441 = 1322 - (1249 + 73);
+				while true do
+					if (v441 == (0 + 0)) then
+						v183.Ambient = v66;
+						v183.OutdoorAmbient = v66;
+						break;
+					end
+				end
+			elseif v96 then
+				local v493 = 1145 - (466 + 679);
+				while true do
+					if (v493 == 0) then
+						v183.Ambient = v96.Ambient;
+						v183.OutdoorAmbient = v96.Outdoor;
+						break;
+					end
+				end
+			end
+			break;
+		end
+	end
+end
+local v105;
+local function v106()
+	local v184 = 0;
+	local v185;
+	local v186;
+	local v187;
+	while true do
+		if (v184 == (4 - 2)) then
+			if not v187 then
+				return;
+			end
+			for v402, v403 in pairs(v187:GetChildren()) do
+				if not v16 then
+					break;
+				end
+				if ((v403.Name == "MoneyDrop") and v403:IsA("BasePart")) then
+					local v466 = 0 - 0;
+					local v467;
+					local v468;
+					while true do
+						if (v466 == (1901 - (106 + 1794))) then
+							if (v468 <= v17) then
+								local v560 = v403:FindFirstChildOfClass("ClickDetector");
+								if v560 then
+									fireclickdetector(v560);
+								end
+							end
+							break;
+						end
+						if (v466 == (0 + 0)) then
+							v467 = v403.Position;
+							v468 = (v186 - v467).Magnitude;
+							v466 = 1 + 0;
+						end
+					end
+				end
+			end
+			break;
+		end
+		if (v184 == 1) then
+			v186 = v185.Position;
+			v187 = v11:FindFirstChild("Ignored") and v11.Ignored:FindFirstChild("Drop");
+			v184 = 5 - 3;
+		end
+		if (v184 == (0 - 0)) then
+			v185 = v86();
+			if not v185 then
+				return;
+			end
+			v184 = 1;
+		end
+	end
+end
+local function v107()
+	if v105 then
+		return;
+	end
+	v105 = task.spawn(function()
+		while v16 do
+			local v374 = 114 - (4 + 110);
+			while true do
+				if (v374 == 0) then
+					pcall(v106);
+					task.wait(584.1 - (57 + 527));
+					break;
+				end
+			end
+		end
+	end);
+end
+local function v108()
+	if v105 then
+		local v375 = 1427 - (41 + 1386);
+		while true do
+			if (v375 == (103 - (17 + 86))) then
+				task.cancel(v105);
+				v105 = nil;
+				break;
+			end
+		end
+	end
+end
+local v109;
+local function v110(v188)
+	local v189 = 0 + 0;
+	local v190;
+	local v191;
+	while true do
+		if (v189 == (0 - 0)) then
+			v190 = game:GetService("ReplicatedStorage");
+			v191 = v190:FindFirstChild("MainEvent");
+			v189 = 2 - 1;
+		end
+		if (v189 == 1) then
+			if v191 then
+				pcall(function()
+					v191:FireServer("DropMoney", tostring(v188));
+				end);
+			end
+			break;
+		end
+	end
+end
+local function v111()
+	local v192 = 0;
+	while true do
+		if (v192 == (166 - (122 + 44))) then
+			if v109 then
+				return;
+			end
+			v109 = task.spawn(function()
+				while v18 do
+					v110(15000);
+					task.wait(1 - 0);
+				end
+			end);
+			break;
+		end
+	end
+end
+local function v112()
+	if v109 then
+		local v376 = 0 - 0;
+		while true do
+			if (v376 == (0 + 0)) then
+				task.cancel(v109);
+				v109 = nil;
+				break;
+			end
+		end
+	end
+end
+local function v113(v193)
+	if (v193 == v15) then
+		return;
+	end
+	if v27[v193] then
+		return;
+	end
+	v27[v193] = {};
+	local v195 = Instance.new("BillboardGui");
+	v195.Name = "NameESP";
+	v195.AlwaysOnTop = true;
+	v195.Size = UDim2.new(0, 200, 0 + 0, 101 - 51);
+	v195.StudsOffset = Vector3.new(65 - (30 + 35), 3, 0 + 0);
+	v195.ResetOnSpawn = false;
+	local v201 = Instance.new("TextLabel");
+	v201.Parent = v195;
+	v201.BackgroundTransparency = 1258 - (1043 + 214);
+	v201.Size = UDim2.new(3 - 2, 1212 - (323 + 889), 2 - 1, 580 - (361 + 219));
+	v201.Font = Enum.Font.GothamBold;
+	v201.TextSize = v25;
+	v201.TextColor3 = v24;
+	v201.TextStrokeTransparency = 320 - (53 + 267);
+	v201.TextStrokeColor3 = Color3.fromRGB(0, 0 + 0, 413 - (15 + 398));
+	local v211 = Instance.new("Highlight");
+	v211.FillTransparency = 982.75 - (18 + 964);
+	v211.FillColor = v23;
+	v211.OutlineTransparency = 0 - 0;
+	v211.OutlineColor = v23;
+	v211.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop;
+	v27[v193] = {Billboard=v195,NameLabel=v201,Highlight=v211};
+	local function v218()
+		local v357 = 0 + 0;
+		local v358;
+		local v359;
+		local v360;
+		while true do
+			if ((2 + 0) == v357) then
+				if (v358 and v359 and v360) then
+					v195.Adornee = v359;
+					v195.Parent = v359;
+					v195.Enabled = v21;
+					v201.TextSize = v25;
+					v201.TextColor3 = v24;
+					v211.Parent = v358;
+					v211.Enabled = true;
+					local v476 = math.floor(v360.Health);
+					local v477 = math.floor(v360.MaxHealth);
+					v201.Text = (v21 and string.format("%s [%d/%d]", v193.Name, v476, v477)) or "";
+					if v26 then
+						local v515 = 850 - (20 + 830);
+						local v516;
+						local v517;
+						while true do
+							if (v515 == (2 + 0)) then
+								v211.FillColor = v517;
+								break;
+							end
+							if (v515 == 0) then
+								v516 = v360.Health / v360.MaxHealth;
+								v517 = nil;
+								v515 = 127 - (116 + 10);
+							end
+							if (v515 == (1 + 0)) then
+								if (v516 > (738.5 - (542 + 196))) then
+									v517 = Color3.fromRGB(0 - 0, 75 + 180, 0 + 0);
+								elseif (v516 > (0.25 + 0)) then
+									v517 = Color3.fromRGB(671 - 416, 653 - 398, 1551 - (1126 + 425));
+								else
+									v517 = Color3.fromRGB(255, 405 - (118 + 287), 0 - 0);
+								end
+								v211.OutlineColor = v517;
+								v515 = 1123 - (118 + 1003);
+							end
+						end
+					else
+						local v518 = 0 - 0;
+						while true do
+							if (v518 == (377 - (142 + 235))) then
+								v211.OutlineColor = v23;
+								v211.FillColor = v23;
+								break;
+							end
+						end
+					end
+				else
+					v195.Enabled = false;
+					v211.Enabled = false;
+				end
+				break;
+			end
+			if (v357 == (4 - 3)) then
+				v359 = v358 and v358:FindFirstChild("Head");
+				v360 = v358 and v358:FindFirstChildOfClass("Humanoid");
+				v357 = 1 + 1;
+			end
+			if (v357 == 0) then
+				if not v20 then
+					v195.Enabled = false;
+					v211.Enabled = false;
+					return;
+				end
+				v358 = v193.Character;
+				v357 = 1;
+			end
+		end
+	end
+	v193.CharacterAdded:Connect(function()
+		task.wait(977.5 - (553 + 424));
+		v218();
+	end);
+	v27[v193].Update = v218;
+	v218();
+end
+local function v114(v220)
+	if v27[v220] then
+		local v377 = 0;
+		while true do
+			if ((0 - 0) == v377) then
+				if v27[v220].Billboard then
+					v27[v220].Billboard:Destroy();
+				end
+				if v27[v220].Highlight then
+					v27[v220].Highlight:Destroy();
+				end
+				v377 = 1 + 0;
+			end
+			if (v377 == 1) then
+				v27[v220] = nil;
+				break;
+			end
+		end
+	end
+end
+local function v115()
+	for v361, v362 in pairs(v27) do
+		if v362.Update then
+			pcall(v362.Update);
+		end
+	end
+end
+local v116;
+local function v117()
+	if v116 then
+		return;
+	end
+	v116 = v10.Heartbeat:Connect(function()
+		if v20 then
+			v115();
+		end
+	end);
+end
+local function v118()
+	for v363, v364 in pairs(v9:GetPlayers()) do
+		v113(v364);
+	end
+end
+v9.PlayerAdded:Connect(function(v221)
+	v113(v221);
+end);
+v9.PlayerRemoving:Connect(function(v222)
+	v114(v222);
+end);
+v15.CharacterAdded:Connect(function(v223)
+	v90(v223);
+end);
+if v15.Character then
+	v90(v15.Character);
+end
+local v119;
+local function v120()
+	local v224 = 0 + 0;
+	while true do
+		if ((0 + 0) == v224) then
+			for v405, v406 in pairs(v28) do
+				if v406 then
+					v406:Destroy();
+				end
+			end
+			v28 = {};
+			break;
+		end
+	end
+end
+local function v121()
+	local v225 = 0;
+	local v226;
+	while true do
+		if (v225 == 1) then
+			if not v226 then
+				return;
+			end
+			for v407, v408 in pairs(v28) do
+				if (not v407 or not v407.Parent) then
+					local v483 = 0;
+					while true do
+						if (v483 == (0 + 0)) then
+							if v408 then
+								v408:Destroy();
+							end
+							v28[v407] = nil;
+							break;
+						end
+					end
+				end
+			end
+			v225 = 2 + 0;
+		end
+		if (v225 == (4 - 2)) then
+			for v409, v410 in pairs(v226:GetChildren()) do
+				if ((v410.Name == "MoneyDrop") and v410:IsA("BasePart")) then
+					if not v28[v410] then
+						local v519 = Instance.new("Highlight");
+						v519.FillColor = Color3.fromRGB(0, 255, 0 - 0);
+						v519.FillTransparency = 0.5;
+						v519.OutlineColor = Color3.fromRGB(0 - 0, 75 + 180, 0);
+						v519.OutlineTransparency = 0;
+						v519.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop;
+						v519.Parent = v410;
+						v28[v410] = v519;
+					end
+				end
+			end
+			break;
+		end
+		if (v225 == (0 - 0)) then
+			if not v22 then
+				local v443 = 753 - (239 + 514);
+				while true do
+					if (v443 == (0 + 0)) then
+						v120();
+						return;
+					end
+				end
+			end
+			v226 = v11:FindFirstChild("Ignored") and v11.Ignored:FindFirstChild("Drop");
+			v225 = 1330 - (797 + 532);
+		end
+	end
+end
+local function v122()
+	local v227 = 0 + 0;
+	while true do
+		if (v227 == 0) then
+			if v119 then
+				return;
+			end
+			v119 = v10.Heartbeat:Connect(function()
+				if v22 then
+					pcall(v121);
+				end
+			end);
+			break;
+		end
+	end
+end
+local function v123()
+	if v119 then
+		local v378 = 0;
+		while true do
+			if (v378 == (0 + 0)) then
+				v119:Disconnect();
+				v119 = nil;
+				break;
+			end
+		end
+	end
+	v120();
+end
+local v124;
+local v125 = Vector3.new(0 - 0, 1202 - (373 + 829), 731 - (476 + 255));
+local function v126()
+	local v228 = v86();
+	local v229 = v85() and v85():FindFirstChildOfClass("Humanoid");
+	if (not v228 or not v229) then
+		return Vector3.new(1130 - (369 + 761), 0, 0 + 0);
+	end
+	local v230 = v229.MoveDirection;
+	if (v230.Magnitude > (0 - 0)) then
+		return v230.Unit;
+	end
+	return Vector3.new(0 - 0, 0, 238 - (64 + 174));
+end
+local function v127()
+	if v124 then
+		return;
+	end
+	v124 = v10.Heartbeat:Connect(function(v365)
+		if not v29 then
+			return;
+		end
+		local v366 = v86();
+		local v367 = v85() and v85():FindFirstChildOfClass("Humanoid");
+		if (not v366 or not v367) then
+			return;
+		end
+		local v368 = v126();
+		if (v368.Magnitude > (0 + 0)) then
+			local v388 = (v30 - 1) * v367.WalkSpeed * v365;
+			local v389 = v366.Position + (v368 * v388);
+			v366.CFrame = CFrame.new(v389) * CFrame.Angles(v366.CFrame:ToEulerAnglesXYZ());
+		end
+	end);
+end
+local function v128()
+	if v124 then
+		local v379 = 0 - 0;
+		while true do
+			if ((336 - (144 + 192)) == v379) then
+				v124:Disconnect();
+				v124 = nil;
+				break;
+			end
+		end
+	end
+end
+local v129;
+local v130 = false;
+local v131 = false;
+local v132 = false;
+local function v133()
+	local v231 = 216 - (42 + 174);
+	while true do
+		if (v231 == (1 + 0)) then
+			v129 = v10.Heartbeat:Connect(function(v411)
+				local v412 = 0;
+				local v413;
+				local v414;
+				local v415;
+				local v416;
+				local v417;
+				local v418;
+				local v419;
+				local v420;
+				while true do
+					if ((0 + 0) == v412) then
+						if not v31 then
+							return;
+						end
+						v413 = v86();
+						v414 = v85() and v85():FindFirstChildOfClass("Humanoid");
+						if (not v413 or not v414) then
+							return;
+						end
+						v412 = 1 + 0;
+					end
+					if (v412 == 3) then
+						v420 = Vector3.new(1504 - (363 + 1141), v11.Gravity * v411, 1580 - (1183 + 397));
+						v413.Velocity = Vector3.new(v413.Velocity.X * 0.9, 0, v413.Velocity.Z * (0.9 - 0)) + (v420 * (0 + 0));
+						v413.Velocity = Vector3.new(v413.Velocity.X, 0 + 0, v413.Velocity.Z);
+						break;
+					end
+					if (v412 == 1) then
+						v415 = v414.MoveDirection;
+						v416 = 1975 - (1913 + 62);
+						if v131 then
+							v416 = 1 + 0;
+						end
+						if v132 then
+							v416 = -(2 - 1);
+						end
+						v412 = 2;
+					end
+					if (v412 == (1935 - (565 + 1368))) then
+						v417 = Vector3.new(v415.X, 0, v415.Z);
+						v418 = Vector3.new(0, v416, 0);
+						v419 = v417 + v418;
+						if (v419.Magnitude > (0 - 0)) then
+							local v542 = v419.Unit * v32 * v411;
+							local v543 = v413.Position + v542;
+							local v544 = v413.CFrame - v413.CFrame.Position;
+							v413.CFrame = CFrame.new(v543) * v544;
+						end
+						v412 = 1664 - (1477 + 184);
+					end
+				end
+			end);
+			break;
+		end
+		if (v231 == (0 - 0)) then
+			if v129 then
+				return;
+			end
+			v130 = true;
+			v231 = 1;
+		end
+	end
+end
+local function v134()
+	if v129 then
+		v129:Disconnect();
+		v129 = nil;
+	end
+	v130 = false;
+	local v232 = v86();
+	if v232 then
+		v232.Velocity = Vector3.new(v232.Velocity.X, -(10 + 0), v232.Velocity.Z);
+	end
+end
+v12.InputBegan:Connect(function(v233, v234)
+	if v234 then
+		return;
+	end
+	if v88() then
+		return;
+	end
+	if not v31 then
+		return;
+	end
+	if (v233.KeyCode == Enum.KeyCode.Space) then
+		v131 = true;
+	end
+	if (v233.KeyCode == Enum.KeyCode.LeftControl) then
+		v132 = true;
+	end
+end);
+v12.InputEnded:Connect(function(v235)
+	if (v235.KeyCode == Enum.KeyCode.Space) then
+		v131 = false;
+	end
+	if (v235.KeyCode == Enum.KeyCode.LeftControl) then
+		v132 = false;
+	end
+end);
+local v135 = v11.CurrentCamera;
+local function v136()
+	local v236 = v12:GetMouseLocation();
+	return Vector2.new(v236.X, v236.Y);
+end
+local function v137(v237)
+	local v238, v239 = v135:WorldToScreenPoint(v237);
+	return Vector2.new(v238.X, v238.Y), v239, v238.Z;
+end
+local function v138(v240)
+	local v241 = 0;
+	local v242;
+	local v243;
+	local v244;
+	while true do
+		if ((857 - (564 + 292)) == v241) then
+			v244 = v136();
+			return (v242 - v244).Magnitude;
+		end
+		if (v241 == (0 - 0)) then
+			v242, v243 = v137(v240);
+			if not v243 then
+				return math.huge;
+			end
+			v241 = 2 - 1;
+		end
+	end
+end
+local function v139(v245)
+	local v246 = 304 - (244 + 60);
+	local v247;
+	local v248;
+	local v249;
+	while true do
+		if (v246 == (0 + 0)) then
+			if (v245 == v15) then
+				return false;
+			end
+			v247 = v245.Character;
+			if not v247 then
+				return false;
+			end
+			v246 = 477 - (41 + 435);
+		end
+		if (v246 == (1002 - (938 + 63))) then
+			v248 = v247:FindFirstChildOfClass("Humanoid");
+			if (not v248 or (v248.Health <= (0 + 0))) then
+				return false;
+			end
+			v249 = v247:FindFirstChild(v35);
+			v246 = 1127 - (936 + 189);
+		end
+		if (v246 == (1 + 2)) then
+			if v53 then
+				local v444 = v245:FindFirstChild("DataFolder");
+				local v445 = v444 and v444:FindFirstChild("Information");
+				local v446 = v445 and v445:FindFirstChild("Crew");
+				local v447 = v15:FindFirstChild("DataFolder");
+				local v448 = v447 and v447:FindFirstChild("Information");
+				local v449 = v448 and v448:FindFirstChild("Crew");
+				if (v446 and v449 and (v446.Value ~= "") and (v449.Value ~= "") and (v446.Value == v449.Value)) then
+					return false;
+				end
+			end
+			return true;
+		end
+		if (v246 == (1615 - (1565 + 48))) then
+			if not v249 then
+				return false;
+			end
+			if (v52 or v56) then
+				local v450 = v247:FindFirstChild("BodyEffects");
+				local v451 = v450 and (v450:FindFirstChild("K.O") or v450:FindFirstChild("KO"));
+				if (v52 and v451 and v451.Value) then
+					return false;
+				end
+				if v56 then
+					local v496 = v247:FindFirstChild("GRABBING_CONSTRAINT");
+					if v496 then
+						return false;
+					end
+				end
+			end
+			if (v54 and v247:FindFirstChildOfClass("ForceField")) then
+				return false;
+			end
+			v246 = 2 + 1;
+		end
+	end
+end
+local function v140(v250)
+	local v251 = 1138 - (782 + 356);
+	local v252;
+	local v253;
+	local v254;
+	local v255;
+	while true do
+		if (v251 == (268 - (176 + 91))) then
+			if not v252 then
+				return false;
+			end
+			v253 = v252:FindFirstChild(v35);
+			v251 = 4 - 2;
+		end
+		if (v251 == (2 - 0)) then
+			if not v253 then
+				return false;
+			end
+			v254 = {};
+			v251 = 1095 - (975 + 117);
+		end
+		if (v251 == (1875 - (157 + 1718))) then
+			if not v49 then
+				return true;
+			end
+			v252 = v250.Character;
+			v251 = 1;
+		end
+		if ((3 + 0) == v251) then
+			for v421, v422 in ipairs(v252:GetDescendants()) do
+				table.insert(v254, v422);
+			end
+			v255 = v135:GetPartsObscuringTarget({v253.Position}, v254);
+			v251 = 4;
+		end
+		if (v251 == (13 - 9)) then
+			return #v255 == (1018 - (697 + 321));
+		end
+	end
+end
+local function v141(v256)
+	local v257 = 0 - 0;
+	local v258;
+	local v259;
+	while true do
+		if (v257 == (1 - 0)) then
+			v259 = v258:FindFirstChild(v35);
+			if not v259 then
+				return false;
+			end
+			v257 = 2;
+		end
+		if (v257 == (0 - 0)) then
+			v258 = v256.Character;
+			if not v258 then
+				return false;
+			end
+			v257 = 1 + 0;
+		end
+		if (v257 == (3 - 1)) then
+			return v138(v259.Position) <= v34;
+		end
+	end
+end
+local function v142(v260)
+	return v139(v260) and v141(v260) and v140(v260);
+end
+local function v143(v261, v262)
+	if mousemoverel then
+		local v381 = 0;
+		while true do
+			if (v381 == (0 - 0)) then
+				mousemoverel(v261, v262);
+				return true;
+			end
+		end
+	end
+	if mousemoveabs then
+		local v382 = 1227 - (322 + 905);
+		local v383;
+		while true do
+			if ((611 - (602 + 9)) == v382) then
+				v383 = v136();
+				mousemoveabs(v383.X + v261, v383.Y + v262);
+				v382 = 1;
+			end
+			if (v382 == (1190 - (449 + 740))) then
+				return true;
+			end
+		end
+	end
+	return false;
+end
+local function v144()
+	local v263 = 0;
+	local v264;
+	local v265;
+	while true do
+		if (v263 == 1) then
+			for v423, v424 in pairs(v9:GetPlayers()) do
+				if v139(v424) then
+					local v484 = v424.Character;
+					local v485 = v484:FindFirstChild(v35);
+					if v485 then
+						local v528 = 872 - (826 + 46);
+						local v529;
+						while true do
+							if (v528 == (947 - (245 + 702))) then
+								v529 = v138(v485.Position);
+								if (v529 < v265) then
+									local v571 = 0 - 0;
+									while true do
+										if ((0 + 0) == v571) then
+											v265 = v529;
+											v264 = v424;
+											break;
+										end
+									end
+								end
+								break;
+							end
+						end
+					end
+				end
+			end
+			return v264;
+		end
+		if (0 == v263) then
+			v264 = nil;
+			v265 = v34;
+			v263 = 1899 - (260 + 1638);
+		end
+	end
+end
+local v145;
+local function v146()
+	if (v48 >= (540 - (382 + 58))) then
+		return true;
+	end
+	return math.random(3 - 2, 84 + 16) <= v48;
+end
+local function v147(v266)
+	local v267 = v266.Position;
+	if (v47 > (0 - 0)) then
+		v267 = v267 + (v266.Velocity * v47);
+	end
+	return v267;
+end
+local function v148(v268)
+	local v269 = 0;
+	while true do
+		if (v269 == 0) then
+			if (v45 ~= "Camera") then
+				return;
+			end
+			if v268 then
+				local v452 = 0 - 0;
+				while true do
+					if (v452 == 0) then
+						v51 = v12.MouseDeltaSensitivity;
+						v12.MouseDeltaSensitivity = 1205 - (902 + 303);
+						break;
+					end
+				end
+			else
+				v12.MouseDeltaSensitivity = v51;
+			end
+			break;
+		end
+	end
+end
+local function v149(v270)
+	local v271 = 0 - 0;
+	local v272;
+	local v273;
+	local v274;
+	local v275;
+	local v276;
+	while true do
+		if (v271 == (2 - 1)) then
+			if not v272 then
+				return;
+			end
+			v273 = v272:FindFirstChild(v35);
+			v271 = 1 + 1;
+		end
+		if (v271 == (1693 - (1121 + 569))) then
+			if v58 then
+				local v454 = 0;
+				local v455;
+				local v456;
+				local v457;
+				while true do
+					if (v454 == 1) then
+						v457 = math.clamp(v456 / math.max(v455, 215 - (22 + 192)), 683 - (483 + 200), 1465 - (1404 + 59));
+						v274 = v273.Position + (v273.Velocity * v47 * v457);
+						break;
+					end
+					if (v454 == 0) then
+						v455 = (v135.CFrame.Position - v274).Magnitude;
+						v456 = v273.Velocity.Magnitude;
+						v454 = 2 - 1;
+					end
+				end
+			end
+			v275, v276 = v137(v274);
+			v271 = 4 - 0;
+		end
+		if (v271 == (769 - (468 + 297))) then
+			if (v276 and v146()) then
+				if (v45 == "Camera") then
+					local v497 = 562 - (334 + 228);
+					while true do
+						if (v497 == (3 - 2)) then
+							v148(true);
+							break;
+						end
+						if (v497 == (0 - 0)) then
+							if v145 then
+								local v565 = 0 - 0;
+								while true do
+									if (v565 == (0 + 0)) then
+										v145:Cancel();
+										v145 = nil;
+										break;
+									end
+								end
+							end
+							if (v46 > 0) then
+								local v566 = 236 - (141 + 95);
+								while true do
+									if (v566 == (0 + 0)) then
+										v145 = v14:Create(v135, TweenInfo.new(v46, Enum.EasingStyle.Sine, Enum.EasingDirection.Out), {CFrame=CFrame.new(v135.CFrame.Position, v274)});
+										v145:Play();
+										break;
+									end
+								end
+							else
+								v135.CFrame = CFrame.new(v135.CFrame.Position, v274);
+							end
+							v497 = 1;
+						end
+					end
+				else
+					local v498 = 0;
+					local v499;
+					local v500;
+					while true do
+						if (v498 == (0 - 0)) then
+							v499 = v136();
+							v500 = v275 - v499;
+							v498 = 2 - 1;
+						end
+						if ((1 + 0) == v498) then
+							if (v500.Magnitude > (2 - 1)) then
+								local v568 = v500.X * v44;
+								local v569 = v500.Y * v44;
+								v568 = math.clamp(v568, -(36 + 14), 27 + 23);
+								v569 = math.clamp(v569, -50, 50);
+								if not v143(v568, v569) then
+									v135.CFrame = CFrame.new(v135.CFrame.Position, v274);
+								end
+							end
+							break;
+						end
+					end
+				end
+			end
+			break;
+		end
+		if ((2 - 0) == v271) then
+			if not v273 then
+				return;
+			end
+			v274 = v147(v273);
+			v271 = 2 + 1;
+		end
+		if (v271 == 0) then
+			if not v270 then
+				return;
+			end
+			v272 = v270.Character;
+			v271 = 164 - (92 + 71);
+		end
+	end
+end
+local function v150()
+	local v277 = 0 + 0;
+	while true do
+		if ((0 - 0) == v277) then
+			for v425, v426 in pairs(v83) do
+				if v426 then
+					pcall(function()
+						v426:Remove();
+					end);
+				end
+			end
+			v83 = {};
+			break;
+		end
+	end
+end
+local function v151()
+	local v278 = 765 - (574 + 191);
+	local v279;
+	local v280;
+	local v281;
+	while true do
+		if (v278 == 3) then
+			for v427, v428 in ipairs(v281) do
+				local v429 = 0 + 0;
+				local v430;
+				while true do
+					if (v429 == 3) then
+						v430.Transparency = 2 - 1;
+						v430.Visible = true;
+						break;
+					end
+					if (v429 == 1) then
+						v430.From = v280;
+						v430.To = v428.pos;
+						v429 = 2 + 0;
+					end
+					if (v429 == (851 - (254 + 595))) then
+						v430.Color = v40;
+						v430.Thickness = 127 - (55 + 71);
+						v429 = 3;
+					end
+					if (0 == v429) then
+						v430 = v83[v427];
+						if not v430 then
+							local v546 = 0 - 0;
+							while true do
+								if (v546 == (1790 - (573 + 1217))) then
+									v430 = Drawing.new("Line");
+									v83[v427] = v430;
+									break;
+								end
+							end
+						end
+						v429 = 1;
+					end
+				end
+			end
+			break;
+		end
+		if (v278 == (5 - 3)) then
+			for v431, v432 in pairs(v9:GetPlayers()) do
+				if (v432 ~= v15) then
+					local v486 = v432.Character;
+					local v487 = v486 and v486:FindFirstChildOfClass("Humanoid");
+					local v488 = v486 and v486:FindFirstChild("HumanoidRootPart");
+					if (v486 and v487 and (v487.Health > 0) and v488) then
+						local v533 = 0 + 0;
+						local v534;
+						local v535;
+						local v536;
+						while true do
+							if (v533 == (0 - 0)) then
+								v534, v535, v536 = v137(v488.Position);
+								if (v535 and (v536 > 0)) then
+									table.insert(v281, {pos=v534,player=v432});
+								end
+								break;
+							end
+						end
+					end
+				end
+			end
+			while #v83 > #v281 do
+				local v433 = table.remove(v83);
+				if v433 then
+					pcall(function()
+						v433:Remove();
+					end);
+				end
+			end
+			v278 = 942 - (714 + 225);
+		end
+		if (0 == v278) then
+			if not v39 then
+				local v458 = 0;
+				while true do
+					if (v458 == (0 - 0)) then
+						v150();
+						return;
+					end
+				end
+			end
+			v279 = v135.ViewportSize;
+			v278 = 1 - 0;
+		end
+		if ((1 + 0) == v278) then
+			v280 = Vector2.new(v279.X / (2 - 0), v279.Y);
+			v281 = {};
+			v278 = 808 - (118 + 688);
+		end
+	end
+end
+local v152;
+local v153 = false;
+local function v154()
+	local v282 = 0;
+	while true do
+		if (v282 == (48 - (25 + 23))) then
+			if v152 then
+				return;
+			end
+			v152 = v10.RenderStepped:Connect(function()
+				local v434, v435 = pcall(function()
+					local v459 = 0 + 0;
+					while true do
+						if (v459 == (1886 - (927 + 959))) then
+							v135 = v11.CurrentCamera;
+							if (v36 and v33) then
+								local v551 = 0 - 0;
+								local v552;
+								while true do
+									if (v551 == (733 - (16 + 716))) then
+										v75.Radius = v34 + (1 - 0);
+										v75.Transparency = v37;
+										v75.Visible = true;
+										v75.Color = Color3.fromRGB(0, 97 - (11 + 86), 0);
+										v551 = 2;
+									end
+									if (v551 == (4 - 2)) then
+										v67.Color = v38;
+										v67.Transparency = v37;
+										v67.Filled = v55;
+										v67.Visible = true;
+										break;
+									end
+									if (v551 == (285 - (175 + 110))) then
+										v552 = v136();
+										v67.Position = v552;
+										v75.Position = v552;
+										v67.Radius = v34;
+										v551 = 1;
+									end
+								end
+							else
+								v67.Visible = false;
+								v75.Visible = false;
+							end
+							v459 = 2 - 1;
+						end
+						if (v459 == 1) then
+							v151();
+							if (v33 and v153) then
+								local v555 = 0;
+								while true do
+									if (v555 == 1) then
+										if v43 then
+											local v585 = 0;
+											while true do
+												if (v585 == 0) then
+													v67.Color = v50;
+													v149(v43);
+													break;
+												end
+											end
+										else
+											v67.Color = v38;
+										end
+										break;
+									end
+									if (v555 == (0 - 0)) then
+										if v57 then
+											local v587 = v85();
+											local v588 = v587 and v587:FindFirstChildOfClass("Tool");
+											if not v588 then
+												return;
+											end
+										end
+										if not (v43 and v142(v43)) then
+											v43 = v144();
+										end
+										v555 = 1797 - (503 + 1293);
+									end
+								end
+							else
+								local v556 = 0;
+								while true do
+									if (v556 == (2 - 1)) then
+										v148(false);
+										break;
+									end
+									if (v556 == (0 + 0)) then
+										v43 = nil;
+										v67.Color = v38;
+										v556 = 1062 - (810 + 251);
+									end
+								end
+							end
+							break;
+						end
+					end
+				end);
+				if not v434 then
+					warn("[Aimbot Loop Error]", v435);
+				end
+			end);
+			break;
+		end
+	end
+end
+local function v155()
+	local v283 = 0 + 0;
+	while true do
+		if (v283 == (1 + 1)) then
+			v75.Visible = false;
+			v150();
+			break;
+		end
+		if (v283 == (0 + 0)) then
+			if v152 then
+				v152:Disconnect();
+				v152 = nil;
+			end
+			if v145 then
+				v145:Cancel();
+				v145 = nil;
+			end
+			v283 = 1;
+		end
+		if (v283 == (534 - (43 + 490))) then
+			v148(false);
+			v67.Visible = false;
+			v283 = 735 - (711 + 22);
+		end
+	end
+end
+local function v156()
+	if (v33 or v39) then
+		v154();
+	else
+		v155();
+	end
+end
+v12.InputBegan:Connect(function(v284, v285)
+	local v286 = 0 - 0;
+	local v287;
+	local v288;
+	local v289;
+	while true do
+		if (v286 == (860 - (240 + 619))) then
+			v287 = (v284.UserInputType == Enum.UserInputType.MouseButton2) or (v284.UserInputType == Enum.UserInputType.MouseButton1);
+			v288 = ((v42 == "MouseButton2") and (v284.UserInputType == Enum.UserInputType.MouseButton2)) or ((v42 == "MouseButton1") and (v284.UserInputType == Enum.UserInputType.MouseButton1));
+			v286 = 2;
+		end
+		if (v286 == 0) then
+			if v285 then
+				return;
+			end
+			if v88() then
+				return;
+			end
+			v286 = 1 + 0;
+		end
+		if (v286 == (2 - 0)) then
+			v289 = (v284.KeyCode ~= Enum.KeyCode.Unknown) and (v42 == v284.KeyCode.Name);
+			if (v288 or v289) then
+				v153 = true;
+				v43 = v144();
+			end
+			break;
+		end
+	end
+end);
+v12.InputEnded:Connect(function(v290)
+	local v291 = ((v42 == "MouseButton2") and (v290.UserInputType == Enum.UserInputType.MouseButton2)) or ((v42 == "MouseButton1") and (v290.UserInputType == Enum.UserInputType.MouseButton1));
+	local v292 = (v290.KeyCode ~= Enum.KeyCode.Unknown) and (v42 == v290.KeyCode.Name);
+	if (v291 or v292) then
+		local v384 = 0 + 0;
+		while true do
+			if (v384 == (1745 - (1344 + 400))) then
+				if v145 then
+					v145:Cancel();
+					v145 = nil;
+				end
+				v148(false);
+				break;
+			end
+			if (v384 == (405 - (255 + 150))) then
+				v153 = false;
+				v43 = nil;
+				v384 = 1 + 0;
+			end
+		end
+	end
+end);
+local v157 = v84.Aimbot:AddLeftGroupbox("Aimbot");
+v157:AddToggle("AimbotEnabled", {Text="Enable Aimbot",Default=false,Tooltip="Right-click to aim at players",Callback=function(v293)
+	v33 = v293;
+	v156();
+	if v293 then
+		v1:Notify("Aimbot enabled! Right-click to aim", 2);
+	else
+		v1:Notify("Aimbot disabled", 2);
+	end
+end});
+v157:AddDropdown("AimbotTargetPart", {Values={"Head","HumanoidRootPart"},Default=(4 - 3),Multi=false,Text="Target Part",Tooltip="Which body part to aim at",Callback=function(v294)
+	v35 = v294;
+end});
+v157:AddSlider("AimbotSmoothing", {Text="Smoothing",Default=0.3,Min=0.05,Max=1,Rounding=(6 - 4),Compact=false,Tooltip="Lower = smoother/slower, Higher = snappier",Callback=function(v295)
+	v44 = v295;
+end});
+v157:AddSlider("AimbotCameraTween", {Text="Camera Lock Tween (s)",Default=(1739 - (404 + 1335)),Min=(406 - (183 + 223)),Max=(1 - 0),Rounding=(2 + 0),Compact=false,Tooltip="0 = instant snap, higher = slower camera tween (camera mode only)",Callback=function(v296)
+	v46 = v296;
+end});
+v157:AddSlider("AimbotPrediction", {Text="Aim Prediction",Default=(0 + 0),Min=(337 - (10 + 327)),Max=(0.3 + 0),Rounding=3,Compact=false,Tooltip="Multiply target velocity by this amount for lead",Callback=function(v297)
+	v47 = v297;
+end});
+v157:AddSlider("AimbotHitChance", {Text="Hit Chance (%)",Default=(438 - (118 + 220)),Min=1,Max=(34 + 66),Rounding=(449 - (108 + 341)),Compact=false,Tooltip="Randomly skip aim updates to look legit",Callback=function(v298)
+	v48 = v298;
+end});
+v157:AddToggle("AimbotLOSCheck", {Text="Line of Sight Check",Default=false,Tooltip="Only aim if target is not behind walls",Callback=function(v299)
+	v49 = v299;
+end});
+v157:AddToggle("AimbotKOCheck", {Text="Ignore KO\'d Targets",Default=false,Tooltip="Skip players that are downed",Callback=function(v300)
+	v52 = v300;
+end});
+v157:AddToggle("AimbotCrewCheck", {Text="Ignore Same Crew",Default=false,Tooltip="Skip players in your crew",Callback=function(v301)
+	v53 = v301;
+end});
+v157:AddToggle("AimbotForceFieldCheck", {Text="Ignore ForceField",Default=false,Tooltip="Skip players with forcefield",Callback=function(v302)
+	v54 = v302;
+end});
+v157:AddToggle("AimbotDownedGrabbedCheck", {Text="Ignore Downed/Grabbed",Default=false,Tooltip="Skip players that are downed or being grabbed",Callback=function(v303)
+	v56 = v303;
+end});
+v157:AddToggle("AimbotGunOnly", {Text="Gun Only",Default=false,Tooltip="Only aim when holding a tool/weapon",Callback=function(v304)
+	v57 = v304;
+end});
+v157:AddToggle("AimbotDynamicPrediction", {Text="Dynamic Prediction",Default=false,Tooltip="Scale prediction by target velocity/distance",Callback=function(v305)
+	v58 = v305;
+end});
+v157:AddDropdown("AimbotKeybind", {Values={"MouseButton2","MouseButton1","Q","E","LeftShift","LeftAlt"},Default=(1 - 0),Multi=false,Text="Aim Key",Tooltip="Key/button to hold for aimbot",Callback=function(v306)
+	v42 = v306;
+end});
+local v158 = v84.Aimbot:AddLeftGroupbox("FOV Circle");
+v158:AddToggle("FOVCircleEnabled", {Text="Show FOV Circle",Default=true,Tooltip="Shows the FOV circle on screen",Callback=function(v307)
+	local v308 = 0;
+	while true do
+		if (v308 == (469 - (270 + 199))) then
+			v36 = v307;
+			v67.Visible = v307 and v33;
+			break;
+		end
+	end
+end});
+v158:AddToggle("FOVFilled", {Text="Filled FOV",Default=false,Tooltip="Fill the FOV circle",Callback=function(v309)
+	v55 = v309;
+	v67.Filled = v309;
+end});
+v158:AddSlider("FOVSize", {Text="FOV Size",Default=100,Min=(7 + 13),Max=500,Rounding=0,Compact=false,Tooltip="Size of the aimbot FOV",Callback=function(v311)
+	local v312 = 1819 - (580 + 1239);
+	while true do
+		if (v312 == (0 - 0)) then
+			v34 = v311;
+			v67.Radius = v311;
+			break;
+		end
+	end
+end});
+v158:AddSlider("FOVTransparency", {Text="FOV Opacity",Default=(0.5 + 0),Min=0,Max=(1 + 0),Rounding=2,Compact=false,Tooltip="0 = invisible, 1 = fully visible",Callback=function(v313)
+	v37 = v313;
+	v67.Transparency = v313;
+end});
+v158:AddLabel("FOV Color"):AddColorPicker("FOVColor", {Default=Color3.fromRGB(255, 255, 112 + 143),Title="FOV Circle Color",Transparency=(0 - 0),Callback=function(v315)
+	v38 = v315;
+	v67.Color = v315;
+end});
+v158:AddLabel("Locked Color"):AddColorPicker("LockedColor", {Default=Color3.fromRGB(159 + 96, 1247 - (645 + 522), 1870 - (1010 + 780)),Title="Locked Target Color",Transparency=0,Callback=function(v317)
+	v50 = v317;
+end});
+local v159 = v84.Aimbot:AddLeftGroupbox("Tracers");
+v159:AddToggle("TracersEnabled", {Text="Enable Tracers",Default=false,Tooltip="Shows lines from screen bottom to players",Callback=function(v318)
+	local v319 = 0 + 0;
+	while true do
+		if (v319 == 1) then
+			if not v318 then
+				v150();
+			end
+			break;
+		end
+		if (v319 == 0) then
+			v39 = v318;
+			v156();
+			v319 = 1;
+		end
+	end
+end});
+v159:AddLabel("Tracer Color"):AddColorPicker("TracerColor", {Default=Color3.fromRGB(255, 0 - 0, 0 - 0),Title="Tracer Color",Transparency=(1836 - (1045 + 791)),Callback=function(v320)
+	v40 = v320;
+end});
+local v160 = v84.Main:AddLeftGroupbox("Cash");
+v160:AddToggle("CashAura", {Text="Cash Aura",Default=false,Tooltip="Teleports to nearby cash to collect it",Callback=function(v321)
+	local v322 = 0;
+	while true do
+		if (v322 == (0 - 0)) then
+			v16 = v321;
+			if v321 then
+				v107();
+			else
+				v108();
+			end
+			break;
+		end
+	end
+end});
+v160:AddSlider("CashRange", {Text="Aura Range",Default=25,Min=(15 - 5),Max=100,Rounding=(505 - (351 + 154)),Compact=false,Callback=function(v323)
+	v17 = v323;
+end});
+v160:AddToggle("CashDrop", {Text="Auto Drop $15,000",Default=false,Tooltip="Spams dropping $15,000",Callback=function(v324)
+	local v325 = 1574 - (1281 + 293);
+	while true do
+		if (v325 == (266 - (28 + 238))) then
+			v18 = v324;
+			if v324 then
+				local v460 = 0 - 0;
+				while true do
+					if ((1559 - (1381 + 178)) == v460) then
+						v111();
+						v1:Notify("Spamming cash drop!", 2);
+						break;
+					end
+				end
+			else
+				local v461 = 0;
+				while true do
+					if ((0 + 0) == v461) then
+						v112();
+						v1:Notify("Stopped cash drop", 2 + 0);
+						break;
+					end
+				end
+			end
+			break;
+		end
+	end
+end});
+local v161 = v84.Main:AddLeftGroupbox("Movement");
+v161:AddToggle("CFrameSpeed", {Text="CFrame Speed",Default=false,Tooltip="Undetectable speed boost using CFrame",Callback=function(v326)
+	local v327 = 0 + 0;
+	while true do
+		if (v327 == 0) then
+			v29 = v326;
+			if v326 then
+				local v462 = 0 - 0;
+				while true do
+					if (v462 == (0 + 0)) then
+						v127();
+						v1:Notify("CFrame Speed enabled!", 2);
+						break;
+					end
+				end
+			else
+				local v463 = 0;
+				while true do
+					if (v463 == (470 - (381 + 89))) then
+						v128();
+						v1:Notify("CFrame Speed disabled", 2 + 0);
+						break;
+					end
+				end
+			end
+			break;
+		end
+	end
+end}):AddKeyPicker("CFrameSpeedKey", {Default="V",SyncToggleState=true,Mode="Toggle",Text="CFrame Speed",NoUI=false});
+v161:AddSlider("SpeedMultiplier", {Text="Speed Multiplier",Default=1.5,Min=(1.1 + 0),Max=5,Rounding=1,Compact=false,Tooltip="1.5-2x is safest, higher may get detected",Callback=function(v328)
+	v30 = v328;
+end});
+v161:AddDivider();
+v161:AddToggle("CFrameFly", {Text="CFrame Fly",Default=false,Tooltip="Fly using WASD + Space/Ctrl",Callback=function(v329)
+	v31 = v329;
+	if v329 then
+		v133();
+		v1:Notify("Flying! WASD to move, Space/Ctrl for up/down", 4 - 1);
+	else
+		v134();
+		v1:Notify("Fly disabled", 1158 - (1074 + 82));
+	end
+end}):AddKeyPicker("FlyKey", {Default="F",SyncToggleState=true,Mode="Toggle",Text="Fly",NoUI=false});
+v161:AddSlider("FlySpeed", {Text="Fly Speed",Default=(109 - 59),Min=(1794 - (214 + 1570)),Max=200,Rounding=0,Compact=false,Tooltip="How fast you fly",Callback=function(v330)
+	v32 = v330;
+end});
+v161:AddDivider();
+v161:AddToggle("WalkSpeedToggle", {Text="Anti-Slow WalkSpeed",Default=false,Tooltip="Reapplies custom WalkSpeed to counter slow effects",Callback=function(v331)
+	v59 = v331;
+	v89();
+	if not v331 then
+		v60 = math.max(v60, 1471 - (990 + 465));
+		v89();
+	end
+end}):AddKeyPicker("WalkSpeedKey", {Default="X",SyncToggleState=true,Mode="Toggle",Text="WalkSpeed Key",NoUI=false});
+v161:AddSlider("WalkSpeedValue", {Text="WalkSpeed",Default=(7 + 9),Min=(7 + 9),Max=(487 + 13),Rounding=(0 - 0),Compact=false,Tooltip="Custom WalkSpeed when anti-slow is enabled",Callback=function(v332)
+	v60 = v332;
+	if v59 then
+		v89();
+	end
+end});
+local v162 = v84.Visuals:AddLeftGroupbox("ESP");
+v162:AddToggle("ESPToggle", {Text="Enable ESP",Default=false,Tooltip="Shows players through walls",Callback=function(v333)
+	local v334 = 1726 - (1668 + 58);
+	while true do
+		if (v334 == 1) then
+			v115();
+			break;
+		end
+		if (v334 == (626 - (512 + 114))) then
+			v20 = v333;
+			if v333 then
+				v118();
+				v117();
+			end
+			v334 = 2 - 1;
+		end
+	end
+end});
+v162:AddToggle("ShowNames", {Text="Show Names",Default=true,Tooltip="Shows player names above heads",Callback=function(v335)
+	v21 = v335;
+end});
+v162:AddToggle("UseHealthColor", {Text="Health-Based Color",Default=true,Tooltip="Changes ESP color based on player health",Callback=function(v336)
+	v26 = v336;
+end});
+v162:AddLabel("ESP Color"):AddColorPicker("ESPColor", {Default=Color3.fromRGB(526 - 271, 0, 0 - 0),Title="ESP Color",Transparency=(0 + 0),Callback=function(v337)
+	v23 = v337;
+end});
+v162:AddLabel("Text Color"):AddColorPicker("TextColor", {Default=Color3.fromRGB(48 + 207, 255, 222 + 33),Title="Text Color",Transparency=(0 - 0),Callback=function(v338)
+	v24 = v338;
+end});
+v162:AddSlider("TextSize", {Text="Text Size",Default=14,Min=(2002 - (109 + 1885)),Max=24,Rounding=0,Compact=false,Callback=function(v339)
+	v25 = v339;
+end});
+v162:AddToggle("MoneyESP", {Text="Money ESP",Default=false,Tooltip="Highlights dropped cash",Callback=function(v340)
+	v22 = v340;
+	if v340 then
+		v122();
+	else
+		v123();
+	end
+end});
+v162:AddToggle("HitboxExpander", {Text="Hitbox Expander",Default=false,Tooltip="Enlarge enemy HumanoidRootPart hitboxes (visual/client-side)",Callback=function(v341)
+	local v342 = 1469 - (1269 + 200);
+	while true do
+		if (v342 == (0 - 0)) then
+			v62 = v341;
+			if v341 then
+				v101();
+			else
+				v102();
+			end
+			break;
+		end
+	end
+end});
+v162:AddSlider("HitboxSize", {Text="Hitbox Size",Default=5,Min=2,Max=(835 - (98 + 717)),Rounding=0,Compact=false,Tooltip="Size applied to enemy HRP when expander is on",Callback=function(v343)
+	v63 = v343;
+end});
+v162:AddToggle("NoclipToggle", {Text="Noclip (local)",Default=false,Tooltip="Disable collisions for your character",Callback=function(v344)
+	v91(v344);
+	if v344 then
+		v99();
+	else
+		v100();
+	end
+end});
+v162:AddToggle("NoFogToggle", {Text="No Fog",Default=false,Tooltip="Remove fog from the map",Callback=function(v345)
+	local v346 = 0;
+	while true do
+		if ((826 - (802 + 24)) == v346) then
+			v65 = v345;
+			v103();
+			break;
+		end
+	end
+end});
+v162:AddLabel("Ambient Color"):AddColorPicker("AmbientColor", {Default=Color3.fromRGB(218 - 91, 160 - 33, 127),Title="Ambient Color",Transparency=(0 + 0),Callback=function(v347)
+	v66 = v347;
+	v104();
+end});
+local v163 = v84.Settings:AddLeftGroupbox("Menu");
+v163:AddButton({Text="Unload Script",Func=function()
+	local v348 = 0 + 0;
+	while true do
+		if (v348 == (1 + 5)) then
+			if v116 then
+				v116:Disconnect();
+			end
+			for v436, v437 in pairs(v27) do
+				v114(v436);
+			end
+			v1:Unload();
+			break;
+		end
+		if (v348 == (1 + 2)) then
+			v108();
+			v112();
+			v123();
+			v128();
+			v348 = 4;
+		end
+		if (v348 == (5 - 3)) then
+			v62 = false;
+			v64 = false;
+			v65 = false;
+			v66 = nil;
+			v348 = 9 - 6;
+		end
+		if ((0 + 0) == v348) then
+			v16 = false;
+			v18 = false;
+			v22 = false;
+			v29 = false;
+			v348 = 1 + 0;
+		end
+		if (v348 == (4 + 0)) then
+			v134();
+			v155();
+			v102();
+			v100();
+			v348 = 4 + 1;
+		end
+		if (v348 == 1) then
+			v31 = false;
+			v33 = false;
+			v39 = false;
+			v59 = false;
+			v348 = 1 + 1;
+		end
+		if (v348 == (1438 - (797 + 636))) then
+			v103();
+			v104();
+			v67:Remove();
+			v150();
+			v348 = 6;
+		end
+	end
+end,DoubleClick=true,Tooltip="Double click to unload"});
+v163:AddLabel("Menu Keybind"):AddKeyPicker("MenuKeybind", {Default="End",NoUI=true,Text="Menu Keybind"});
+v7 = v1.Options or v7;
+local v164 = v7 and (v7.MenuKeybind or v7.MenuKeyBind);
+if v164 then
+	v1.ToggleKeybind = v164;
+else
+	v1.ToggleKeybind = Enum.KeyCode.End;
+end
+if (typeof(v1.SetKeybindState) == "function") then
+	local v372 = 0 - 0;
+	while true do
+		if (v372 == (1619 - (1427 + 192))) then
+			v12.TextBoxFocused:Connect(function()
+				v1:SetKeybindState(false);
+			end);
+			v12.TextBoxFocusReleased:Connect(function()
+				v1:SetKeybindState(true);
+			end);
+			break;
+		end
+	end
+end
+v2:SetLibrary(v1);
+v3:SetLibrary(v1);
+v3:IgnoreThemeSettings();
+v3:SetIgnoreIndexes({"MenuKeybind"});
+v2:SetFolder("DaHoodScript");
+v3:SetFolder("DaHoodScript/configs");
+local v165 = v84.Settings:AddLeftGroupbox("Configuration");
+v3:BuildConfigSection(v165);
+local v166 = v84.Settings:AddLeftGroupbox("Themes");
+v2:BuildThemeSection(v166);
+local v167 = v84.Settings:AddLeftGroupbox("Menu Settings");
+v167:AddToggle("KeybindDisplay", {Text="Show Keybind List",Default=true,Tooltip="Shows active keybinds on screen",Callback=function(v349)
+	v1.KeybindFrame.Visible = v349;
+end});
+v167:AddToggle("WatermarkToggle", {Text="Show Watermark",Default=true,Tooltip="Shows watermark on screen",Callback=function(v351)
+	v1:SetWatermarkVisibility(v351);
+end});
+v167:AddSlider("MenuTransparency", {Text="Menu Transparency",Default=(0 - 0),Min=0,Max=(45 + 5),Rounding=(0 + 0),Compact=false,Tooltip="Adjusts menu background transparency",Callback=function(v352)
+	v1:SetTransparency(v352 / (426 - (192 + 134)));
+end});
+v3:LoadAutoloadConfig();
+v1:Notify("Da Hood Script Loaded!", 1279 - (316 + 960));
