@@ -13,6 +13,11 @@ Library.Toggles = Library.Toggles or {}
 Library.Options = Library.Options or {}
 local Toggles = Library.Toggles
 local Options = Library.Options
+local Window = Library:CreateWindow({
+    Title = 'Da Snoopy',
+    Center = true, 
+    AutoShow = true,
+})
 
 -- Services
 local Players = game:GetService('Players')
@@ -1799,5 +1804,6 @@ SaveManager:LoadAutoloadConfig()
 
 -- Notify user
 Library:Notify('Da Hood Script Loaded!', 3)
+
 
 
