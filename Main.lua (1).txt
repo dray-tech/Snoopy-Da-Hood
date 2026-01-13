@@ -1,10 +1,10 @@
 --[[
-    Da Hood Script - Linoria Library
+    Da Hood Script - LinOppy Library
     Optimized & Clean
 ]]
 
--- Load Snoopy Library
-local repo = 'loadstring(game:HttpGet('https://sirius.menu/rayfield'))()'
+-- Load LinOppy Library
+local repo = 'https://raw.githubusercontent.com/dray-tech/SloppyUI/refs/heads/main/Library.lua.txt'
 
 local Library = loadstring(game:HttpGet(repo .. 'Library.lua'))()
 local ThemeManager = loadstring(game:HttpGet(repo .. 'addons/ThemeManager.lua'))()
@@ -1799,4 +1799,5 @@ SaveManager:LoadAutoloadConfig()
 
 -- Notify user
 Library:Notify('Da Hood Script Loaded!', 3)
+
 
