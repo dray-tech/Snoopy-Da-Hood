@@ -1,9 +1,32 @@
---[[
-    Da Snoopy Hood Script - Rayfield Library
-]]--
-
 -- Load Rayfield Library
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+
+-- Create Rayfield Window
+local Window = Rayfield:CreateWindow({
+    Name = "Da Snoopy Hood",
+    LoadingTitle = "Da Snoopy Hood",
+    LoadingSubtitle = "by Snoopy",
+    ConfigurationSaving = {
+        Enabled = true,
+        FolderName = "DaSnoopyHood",
+        FileName = "Config"
+    },
+    Discord = {
+        Enabled = false,
+        Invite = "noinvitelink",
+        RememberJoins = true
+    },
+    KeySystem = false,
+    KeySettings = {
+        Title = "Untitled",
+        Subtitle = "Key System",
+        Note = "No method of obtaining the key is provided",
+        FileName = "Key",
+        SaveKey = true,
+        GrabKeyFromSite = false,
+        Key = {"Hello"}
+    }
+})
 -- Services
 local Players = game:GetService('Players')
 local RunService = game:GetService('RunService')
@@ -97,33 +120,6 @@ FOVCircleOutline.Transparency = FOVCircleTransparency
 
 -- Tracer storage
 local TracerLines = {}
-
--- Create Rayfield Window
-local Window = Rayfield:CreateWindow({
-    Name = "Da Snoopy Hood",
-    LoadingTitle = "Da Snoopy Hood",
-    LoadingSubtitle = "by Snoopy",
-    ConfigurationSaving = {
-        Enabled = true,
-        FolderName = "DaSnoopyHood",
-        FileName = "Config"
-    },
-    Discord = {
-        Enabled = false,
-        Invite = "noinvitelink",
-        RememberJoins = true
-    },
-    KeySystem = false,
-    KeySettings = {
-        Title = "Untitled",
-        Subtitle = "Key System",
-        Note = "No method of obtaining the key is provided",
-        FileName = "Key",
-        SaveKey = true,
-        GrabKeyFromSite = false,
-        Key = {"Hello"}
-    }
-})
 
 -- =============================================
 -- UTILITY FUNCTIONS
